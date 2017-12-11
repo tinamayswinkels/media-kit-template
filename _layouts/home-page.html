@@ -32,22 +32,22 @@ layout: default
           {% else %}
            <h1> {{page.banner-title}} </h1>
           {% endif %}
-           <p class="editable mob-hide"> @hellotinamay </p>
+           <p class="mob-hide"> {{page.banner-subtitle}} </p>
         </div>
        <p class="pin-bottom mob-hide"> MEDIA KIT</p>
     </div>
     <div class="col-8_sm-12 bg" style="background-image:url('{{page.banner-image_path}}')">
       <!-- background image -->
-      <p class="pin-bottom banner-color mob-show editable"> MEDIA KIT</p>
+      <p class="pin-bottom banner-color mob-show"> MEDIA KIT</p>
     </div>
   </section>
 
   <section>
 
-    <h2 class="editable">Introduction</h2>
+    <h2 class="editable">{{page.intro-title}}</h2>
     <hr />
     <div class="editable">
-    <p> Tina May started a marketing agency at 20, travelled the world building websites for boutique hotels and now runs the highly regarded coding school Institute of Code. In between running immersive coding bootcamps in Bali and teaching digital marketing, she builds stunning websites designed to convert, using only the latest technologies. For a recent portfolio example, please see our recently updated website <a href="www.instituteofcode.com" target="_blank">www.instituteofcode.com</a> and <a href="www.eyesofanomad.com"> www.eyesofanomad.com </a> </p>
+    {{page.intro-text_html}}
     </div>
   </section>
 
@@ -59,7 +59,7 @@ layout: default
   {% endif %}
 
   <section class="stats-section">
-     <h2 class="editable"> Key Stats </h2>
+     <h2 class="editable"> {{page.stats-title}} </h2>
      <hr />
      <div class="grid-center">
        {% for stat in page.stats %}
@@ -76,12 +76,11 @@ layout: default
   <!--- - - - - - - - - -->
 
   <section>
-  <h2 class="editable"> My Audience </h2>
-  <hr />
-  <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-  </div>
+    <h2 class="editable"> {{page.audience-title}} </h2>
+    <hr />
+    <div class="editable">
+        {{page.audience-text_html}}
+    </div>
 </section>
 
 
@@ -89,10 +88,10 @@ layout: default
 <!--- - - - - - - - - -->
 {% if page.brand-partnerships %}
 <section>
-  <h2 class="editable"> Brand Partnerships </h2>
+  <h2 class="editable"> {{page.brand-title}} </h2>
   <hr />
   <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    {{page.brand-text_html}}
   </div>
 
   <div class="grid-center margin-top">
@@ -108,14 +107,15 @@ layout: default
 {% endif %}
 
 <!--- - - - - - - - - -->
-{% if page.testimonials-section %}
+
 <section>
-  <h2 class="editable"> Work with me </h2>
+  <h2 class="editable"> {{page.testimonials-title}} </h2>
   <hr />
   <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    {{page.testimonials-text_html}}
   </div>
 
+{% if page.testimonials-section %}
   <div class="grid-center margin-top">
     {% for testimonial in page.testimonials %}
      <div class="col-4_sm-12 testimonial">
@@ -124,15 +124,17 @@ layout: default
      </div>
      {% endfor %}
   </div>
+  {% endif %}
+
 </section>
-{% endif %}
+
 
 <!-- - - - - - -->
   <section class="gallery-section">
-    <h2 class="editable"> Gallery </h2>
+    <h2 class="editable"> {{page.gallery-title}} </h2>
     <hr />
     <div class="editable">
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {{page.gallery-text_html}}
     </div>
      <div class="grid-center margin-top">
        {% for gallery in page.gallery %}
@@ -149,11 +151,12 @@ layout: default
 <!-- - - - - - -->
 
 <section class="featured editable">
-  <h2> Let's Connect </h2>
+  <h2>{{page.contact-title}} </h2>
   <hr />
-  <p> <strong> Phone: </strong> (+1) 555 555 5555 </p>
-  <p> <strong> Email: </strong> hello@tinamay.com </p>
-  <p> <strong> Instagram: </strong> www.instagram.com/hellotinamay</p>
+  {% for item in page.contact %}
+  <p> <strong> {{item.type}}:  </strong> {{item.value}} </p>
+  {% endfor %}
+
 </section>
 <footer>
    <p> Media Kit Created with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://www.instituteofcode.com">The Institute of Code </a> </p>
