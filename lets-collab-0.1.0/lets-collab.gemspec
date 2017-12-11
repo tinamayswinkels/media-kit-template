@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = "lets-collab"
-  s.version       = "0.1.1"
+  s.version       = "0.1.0"
   s.license       = "MIT"
   s.authors       = ["Tina May"]
   s.email         = ["tina@instituteofcode.com"]

@@ -1,0 +1,161 @@
+---
+layout: default
+---
+
+
+<style>
+    h2, a {
+      color: {{page.featured_color}};
+    }
+    hr, a {
+      border-color: {{page.featured_color}};
+    }
+    section.featured {
+      background-color: {{page.featured_color}};
+    }
+    .banner-color {
+      background-color: {{page.banner_color}};
+      color: {{page.banner-text_color}}
+    }
+    h1, h2, h3, h4 {
+        font-family: '{{page.font-name}}';
+    }
+</style>
+
+
+  <section class="banner grid banner-color">
+
+    <div class="col-4_sm-12 inner vertical-align">
+        <div>
+          {% if page.logo %}
+            <img class="logo" src="{{page.logo_path}}" />
+          {% else %}
+           <h1> {{page.banner-title}} </h1>
+          {% endif %}
+           <p class="editable mob-hide"> @hellotinamay </p>
+        </div>
+       <p class="pin-bottom mob-hide"> MEDIA KIT</p>
+    </div>
+    <div class="col-8_sm-12 bg" style="background-image:url('{{page.banner-image_path}}')">
+      <!-- background image -->
+      <p class="pin-bottom banner-color mob-show editable"> MEDIA KIT</p>
+    </div>
+  </section>
+
+  <section>
+
+    <h2 class="editable">Introduction</h2>
+    <hr />
+    <div class="editable">
+    <p> Tina May started a marketing agency at 20, travelled the world building websites for boutique hotels and now runs the highly regarded coding school Institute of Code. In between running immersive coding bootcamps in Bali and teaching digital marketing, she builds stunning websites designed to convert, using only the latest technologies. For a recent portfolio example, please see our recently updated website <a href="www.instituteofcode.com" target="_blank">www.instituteofcode.com</a> and <a href="www.eyesofanomad.com"> www.eyesofanomad.com </a> </p>
+    </div>
+  </section>
+
+  <!--- - - - - - - - - -->
+  {% if page.instagram %}
+  <section class="no-padding">
+    {{page.instagram-code}}
+  </section>
+  {% endif %}
+
+  <section class="stats-section">
+     <h2 class="editable"> Key Stats </h2>
+     <hr />
+     <div class="grid-center">
+       {% for stat in page.stats %}
+        <div class="col-3_sm-6_xs-12 center">
+
+          <span class="info">{{stat.amount}}</span>
+          <span class="info-subtitle">{{stat.subtitle}}</span>
+          <h3>{{stat.title}}</h3>
+        </div>
+        {% endfor %}
+     </div>
+  </section>
+
+  <!--- - - - - - - - - -->
+
+  <section>
+  <h2 class="editable"> My Audience </h2>
+  <hr />
+  <div class="editable">
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+  </div>
+</section>
+
+
+
+<!--- - - - - - - - - -->
+{% if page.brand-partnerships %}
+<section>
+  <h2 class="editable"> Brand Partnerships </h2>
+  <hr />
+  <div class="editable">
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+  </div>
+
+  <div class="grid-center margin-top">
+    {% for logo in page.brand-logos %}
+    <div class="col-3_sm-6_xs-12">
+         <div class="logo-item" style="background-image:url('{{logo.image_path}}');">
+         </div>
+     </div>
+     {% endfor %}
+  </div>
+
+</section>
+{% endif %}
+
+<!--- - - - - - - - - -->
+{% if page.testimonials-section %}
+<section>
+  <h2 class="editable"> Work with me </h2>
+  <hr />
+  <div class="editable">
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <div class="grid-center margin-top">
+    {% for testimonial in page.testimonials %}
+     <div class="col-4_sm-12 testimonial">
+       <p>{{testimonial.quote}}</p>
+       <p class="author">- {{testimonial.author}}</p>
+     </div>
+     {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- - - - - - -->
+  <section class="gallery-section">
+    <h2 class="editable"> Gallery </h2>
+    <hr />
+    <div class="editable">
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+     <div class="grid-center margin-top">
+       {% for gallery in page.gallery %}
+        <div class="col-3_sm-6_xs-12">
+          <div class="gallery-item" style="background-image:url('{{gallery.image_path}}');">
+          </div>
+          {% if page.gallery-captions %}
+            <p class="caption">{{gallery.caption}}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+     </div>
+  </section>
+<!-- - - - - - -->
+
+<section class="featured editable">
+  <h2> Let's Connect </h2>
+  <hr />
+  <p> <strong> Phone: </strong> (+1) 555 555 5555 </p>
+  <p> <strong> Email: </strong> hello@tinamay.com </p>
+  <p> <strong> Instagram: </strong> www.instagram.com/hellotinamay</p>
+</section>
+<footer>
+   <p> Media Kit Created with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://www.instituteofcode.com">The Institute of Code </a> </p>
+   <p class="subtle">Get your own<a href="http://www.letscollab.io"> online media kit at letscollab.io</a> <br />or join one of our courses in Bali and in 10 days we'll teach you how to <a href="http://www.instituteofcode.com/courses/social-media"> become an influencer or social media manager.</a> </p>
+</footer>
