@@ -9,13 +9,13 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "media-kit-template"
+gem "lets-collab"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
 
 ```yaml
-theme: media-kit-template
+theme: lets-collab
 ```
 
 And then execute:
