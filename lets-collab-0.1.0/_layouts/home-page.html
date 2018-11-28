@@ -1,5 +1,45 @@
 ---
 layout: default
+_comments:
+  layout: Keep this as home-page
+  title: Title for google search results and social media previews
+  description: This is the description for SEO and shown in search results and social media previews
+  logo: Do you have a logo image?
+  logo_path: Upload your logo here (recommended size is 300px wide)
+  banner-title: Title displayed on the top banner
+  banner-subtitle: A subtitle displayed on the banner
+  banner-image_path: The large banner image (recommended size is around 1200px wide by 900px tall)
+  banner_color: Color for the banner background
+  banner-text_color: Color for the banner text
+  featured_color: A featured color to use throughout the media kit
+  custom-font_html: If you want to use a custom font for your headings, paste the embed link for a custom google font
+  font-name: Name of the Google Font (with correct capitalisation)
+  intro-title: Title of the first introduction banner
+  intro-text_html: Write a short description of you, your brand and what you offer.
+  instagram: Do you want to add an instagram widget?
+  instagram-code: Go to lightwidget.com and copy the embed code here.
+  stats-title: Title of the statistics section
+  stats: Some general statistics about you or your audience
+  audience-title: Title of the Audience Section
+  audience-text_html: Short blurb of your audience or target market. Alternatively you can use this section for any other short text block.
+  brand-partnerships: Do you want a section that shows brands or clients you have worked with?
+  brand-title: Title of Brand Partnerships or Client section
+  brand-text_html: Short blurb about your experience and brands you have worked with.
+  brand-logo-displayed: true
+  brand-logos: Upload the logos of clients you have worked with (recommended size 300px x 200px)
+  testimonials-title: Title of the work with me section
+  testimonials-text_html: Short blurb about the servies you offer
+  testimonials-section: Do you want to include a section for testimonials?
+  testimonials:
+    - quote: A short testimonial
+      author: Who the testimonial is from
+  gallery-title: Title of the Gallery Section
+  gallery-text_html: Short blurb about the gallery or your content creation skills
+  gallery-captions: Do you want to display a caption for each photo?
+  contact-title: Title of the contact section
+  contact:
+    - type: Eg. Phone, Email, Instagram
+      value: Contact Number, Email or URL
 ---
 
 
@@ -32,22 +72,22 @@ layout: default
           {% else %}
            <h1> {{page.banner-title}} </h1>
           {% endif %}
-           <p class="editable mob-hide"> @hellotinamay </p>
+           <p class="mob-hide"> {{page.banner-subtitle}} </p>
         </div>
        <p class="pin-bottom mob-hide"> MEDIA KIT</p>
     </div>
     <div class="col-8_sm-12 bg" style="background-image:url('{{page.banner-image_path}}')">
       <!-- background image -->
-      <p class="pin-bottom banner-color mob-show editable"> MEDIA KIT</p>
+      <p class="pin-bottom banner-color mob-show"> MEDIA KIT</p>
     </div>
   </section>
 
   <section>
 
-    <h2 class="editable">Introduction</h2>
+    <h2 class="editable">{{page.intro-title}}</h2>
     <hr />
     <div class="editable">
-    <p> Tina May started a marketing agency at 20, travelled the world building websites for boutique hotels and now runs the highly regarded coding school Institute of Code. In between running immersive coding bootcamps in Bali and teaching digital marketing, she builds stunning websites designed to convert, using only the latest technologies. For a recent portfolio example, please see our recently updated website <a href="www.instituteofcode.com" target="_blank">www.instituteofcode.com</a> and <a href="www.eyesofanomad.com"> www.eyesofanomad.com </a> </p>
+    {{page.intro-text_html}}
     </div>
   </section>
 
@@ -59,7 +99,7 @@ layout: default
   {% endif %}
 
   <section class="stats-section">
-     <h2 class="editable"> Key Stats </h2>
+     <h2 class="editable"> {{page.stats-title}} </h2>
      <hr />
      <div class="grid-center">
        {% for stat in page.stats %}
@@ -76,12 +116,11 @@ layout: default
   <!--- - - - - - - - - -->
 
   <section>
-  <h2 class="editable"> My Audience </h2>
-  <hr />
-  <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-  </div>
+    <h2 class="editable"> {{page.audience-title}} </h2>
+    <hr />
+    <div class="editable">
+        {{page.audience-text_html}}
+    </div>
 </section>
 
 
@@ -89,12 +128,12 @@ layout: default
 <!--- - - - - - - - - -->
 {% if page.brand-partnerships %}
 <section>
-  <h2 class="editable"> Brand Partnerships </h2>
+  <h2 class="editable"> {{page.brand-title}} </h2>
   <hr />
   <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    {{page.brand-text_html}}
   </div>
-
+{% if page.brand-logo-displayed %}
   <div class="grid-center margin-top">
     {% for logo in page.brand-logos %}
     <div class="col-3_sm-6_xs-12">
@@ -103,19 +142,20 @@ layout: default
      </div>
      {% endfor %}
   </div>
-
+{% endif %}
 </section>
 {% endif %}
 
 <!--- - - - - - - - - -->
-{% if page.testimonials-section %}
+
 <section>
-  <h2 class="editable"> Work with me </h2>
+  <h2 class="editable"> {{page.testimonials-title}} </h2>
   <hr />
   <div class="editable">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    {{page.testimonials-text_html}}
   </div>
 
+{% if page.testimonials-section %}
   <div class="grid-center margin-top">
     {% for testimonial in page.testimonials %}
      <div class="col-4_sm-12 testimonial">
@@ -124,15 +164,17 @@ layout: default
      </div>
      {% endfor %}
   </div>
+  {% endif %}
+
 </section>
-{% endif %}
+
 
 <!-- - - - - - -->
   <section class="gallery-section">
-    <h2 class="editable"> Gallery </h2>
+    <h2 class="editable"> {{page.gallery-title}} </h2>
     <hr />
     <div class="editable">
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {{page.gallery-text_html}}
     </div>
      <div class="grid-center margin-top">
        {% for gallery in page.gallery %}
@@ -149,11 +191,12 @@ layout: default
 <!-- - - - - - -->
 
 <section class="featured editable">
-  <h2> Let's Connect </h2>
+  <h2>{{page.contact-title}} </h2>
   <hr />
-  <p> <strong> Phone: </strong> (+1) 555 555 5555 </p>
-  <p> <strong> Email: </strong> hello@tinamay.com </p>
-  <p> <strong> Instagram: </strong> www.instagram.com/hellotinamay</p>
+  {% for item in page.contact %}
+  <p> <strong> {{item.type}}:  </strong> {{item.value}} </p>
+  {% endfor %}
+
 </section>
 <footer>
    <p> Media Kit Created with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://www.instituteofcode.com">The Institute of Code </a> </p>
